@@ -5,7 +5,6 @@ import 'package:arcade_motoru/renk.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const renkId = 'oyun-renk-gecisi';
 
@@ -88,7 +87,7 @@ final renkConfig = GameConfig(
   rules: renkRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => renkRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => renkRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintColor(c, s, p, t);
